@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bluekola.Security\Bluekola.Security.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="3.1.0" />
+    <PackageReference Include="FluentAssertions" Version="5.4.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bluekola.Api.Common\Bluekola.Api.Common.csproj" />
+    <ProjectReference Include="..\Bluekola.Api.Models\Bluekola.Api.Models.csproj" />
+    <ProjectReference Include="..\Bluekola.Data.Access\Bluekola.Data.Access.csproj" />
+    <ProjectReference Include="..\Bluekola.Data.Model\Bluekola.Data.Model.csproj" />
+    <ProjectReference Include="..\Bluekola.Security\Bluekola.Security.csproj" />
+  </ItemGroup>
+
+</Project>
