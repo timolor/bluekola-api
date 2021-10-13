@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
+using Bluekola.Data.Model.Common;
 
-namespace Bluekola.Data.Model
+namespace Bluekola.Data.Model.Entities
 {
-    public class User
+    public class User : BaseEntity
     {
         public User()
         {
             Roles = new List<UserRole>();
         }
 
-        public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string FirstName { get; set; }

@@ -1,8 +1,9 @@
-﻿namespace Bluekola.Data.Model
+﻿using Bluekola.Data.Model.Common;
+
+namespace Bluekola.Data.Model.Entities
 {
-    public class UserRole
+    public class UserRole : BaseEntity
     {
-        public int Id { get; set; }
         public int UserId { get; set; }
         public virtual User User { get; set; }
         public int RoleId { get; set; }

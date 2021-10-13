@@ -1,5 +1,6 @@
 ﻿using System;
 using Bluekola.Data.Model;
+using Bluekola.Data.Model.Entities;
 
 namespace Bluekola.Queries.Models
 {

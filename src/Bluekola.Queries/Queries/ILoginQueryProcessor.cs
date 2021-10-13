@@ -2,6 +2,7 @@
 using Bluekola.Api.Models.Auth;
 using Bluekola.Api.Models.Users;
 using Bluekola.Data.Model;
+using Bluekola.Data.Model.Entities;
 using Bluekola.Queries.Models;
 
 namespace Bluekola.Queries.Queries

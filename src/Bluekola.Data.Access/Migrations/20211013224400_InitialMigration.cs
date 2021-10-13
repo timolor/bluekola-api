@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Bluekola.Data.Access.Migrations
 {
@@ -17,6 +18,22 @@ namespace Bluekola.Data.Access.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Roles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserOtps",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Otp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    isUsed = table.Column<bool>(type: "bit", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserOtps", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -77,6 +94,9 @@ namespace Bluekola.Data.Access.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "UserOtps");
+
             migrationBuilder.DropTable(
                 name: "UserRoles");
 

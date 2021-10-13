@@ -2,6 +2,7 @@
 using AutoMapper;
 using Bluekola.Api.Models.Users;
 using Bluekola.Data.Model;
+using Bluekola.Data.Model.Entities;
 
 namespace Bluekola.Maps
 {

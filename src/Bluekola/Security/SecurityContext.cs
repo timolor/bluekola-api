@@ -3,6 +3,7 @@ using System.Linq;
 using Bluekola.Data.Access.Constants;
 using Bluekola.Data.Access.DAL;
 using Bluekola.Data.Model;
+using Bluekola.Data.Model.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 

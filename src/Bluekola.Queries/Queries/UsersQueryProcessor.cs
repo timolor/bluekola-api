@@ -6,6 +6,7 @@ using Bluekola.Api.Models.Users;
 using Bluekola.Data.Access.DAL;
 using Bluekola.Data.Access.Helpers;
 using Bluekola.Data.Model;
+using Bluekola.Data.Model.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bluekola.Queries.Queries

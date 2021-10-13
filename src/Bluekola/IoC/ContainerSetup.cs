@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using Bluekola.Api.Common;
 using Bluekola.Data.Access.DAL;
 using Bluekola.Filters;
 using Bluekola.Helpers;
@@ -25,6 +26,7 @@ namespace Bluekola.IoC
             AddQueries(services);
             ConfigureAutoMapper(services);
             ConfigureAuth(services);
+            AddServices(services, configuration);
         }
 
         private static void ConfigureAuth(IServiceCollection services)
@@ -71,6 +73,10 @@ namespace Bluekola.IoC
                 var interfaceQ = type.GetTypeInfo().GetInterfaces().First();
                 services.AddScoped(interfaceQ, type);
             }
+        }
+
+        private static void AddServices(IServiceCollection services, IConfigurationRoot configuration){
+            services.AddSharedInfrastructure(configuration);
         }
     }
 }

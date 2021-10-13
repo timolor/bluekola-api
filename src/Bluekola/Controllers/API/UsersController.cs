@@ -5,6 +5,7 @@ using Bluekola.Api.Models.Common;
 using Bluekola.Api.Models.Users;
 using Bluekola.Data.Access.Constants;
 using Bluekola.Data.Model;
+using Bluekola.Data.Model.Entities;
 using Bluekola.Filters;
 using Bluekola.Maps;
 using Bluekola.Queries.Queries;

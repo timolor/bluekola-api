@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Bluekola.Api.Models.Auth;
+using Bluekola.Api.Models.Common;
 using Bluekola.Api.Models.Users;
 using Bluekola.Filters;
 using Bluekola.Maps;
@@ -24,22 +25,23 @@ namespace Bluekola.Server.RestAPI
 
         [HttpPost("Authenticate")]
         [ValidateModel]
-        public UserWithTokenModel Authenticate([FromBody] LoginModel model)
+        public GenericResponse<UserWithTokenModel> Authenticate([FromBody] LoginModel model)
         {
             var result = _query.Authenticate(model.Phone, model.Password);
 
             var resultModel = _mapper.Map<UserWithTokenModel>(result);
 
-            return resultModel;
+            return new GenericResponse<UserWithTokenModel>(true, ResponseBase.SUCCESSFUL ,resultModel);
         }
 
         [HttpPost("Register")]
         [ValidateModel]
-        public async Task<UserModel> Register([FromBody] RegisterModel model)
+        public async Task<GenericResponse<UserModel>> Register([FromBody] RegisterModel model)
         {
             var result = await _query.Register(model);
             var resultModel = _mapper.Map<UserModel>(result);
-            return resultModel;
+            //return resultModel;
+            return new GenericResponse<UserModel>(true, ResponseBase.SUCCESSFUL ,resultModel);
         }
 
         [HttpPost("Password")]

@@ -7,6 +7,7 @@ using Bluekola.Api.Models.Users;
 using Bluekola.Data.Access.DAL;
 using Bluekola.Data.Access.Helpers;
 using Bluekola.Data.Model;
+using Bluekola.Data.Model.Entities;
 using Bluekola.Queries.Models;
 using Bluekola.Security;
 using Bluekola.Security.Auth;
