@@ -51,5 +51,11 @@ namespace Bluekola.Server.RestAPI
         {
             await _query.ChangePassword(requestModel);
         }
+
+        [HttpGet("Exception")]
+        public Task TestException()
+        {
+            throw new Api.Common.Exceptions.NotFoundException("test exceotins");
+        }
     }
 }

@@ -15,7 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Bluekola.Server.RestAPI
 {
     [Route("api/[controller]")]
-    //[Authorize(Roles = Roles.AdministratorOrManager)]
+    // [Authorize(Roles = Roles.AdministratorOrManager)]
     public class UsersController : Controller
     {
         private readonly IUsersQueryProcessor _query;

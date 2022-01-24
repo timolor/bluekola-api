@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using Bluekola.Data.Model.Common;
 
 namespace Bluekola.Data.Model.Entities
@@ -11,6 +13,8 @@ namespace Bluekola.Data.Model.Entities
         }
 
         public string Username { get; set; }
+        [JsonIgnore]
+        [IgnoreDataMember] 
         public string Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

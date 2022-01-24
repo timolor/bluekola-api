@@ -35,8 +35,8 @@ namespace Bluekola.Queries.Queries
         public UserWithToken Authenticate(string usernameOrPhone, string password)
         {
             var user = (from u in _uow.Query<User>()
-                    where (u.Username == usernameOrPhone || u.Phone == usernameOrPhone) && !u.IsDeleted
-                    select u)
+                        where (u.Username == usernameOrPhone || u.Phone == usernameOrPhone) && !u.IsDeleted
+                        select u)
                 .Include(x => x.Roles)
                 .ThenInclude(x => x.Role)
                 .FirstOrDefault();
@@ -51,8 +51,8 @@ namespace Bluekola.Queries.Queries
                 throw new BadRequestException("phone/password aren't right");
             }
 
-            var expiresIn = DateTime.Now + TokenAuthOption.ExpiresSpan;
-            var token = _tokenBuilder.Build(user.Phone, user.Roles.Select(x => x.Role.Name).ToArray(), expiresIn);
+            var expiresIn = DateTime.UtcNow + TokenAuthOption.ExpiresSpan;
+            var token = _tokenBuilder.Build(user.Id.ToString(), user.Roles.Select(x => x.Role.Name).ToArray(), expiresIn);
 
             return new UserWithToken
             {

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Bluekola.Api.Models.Auth;
 using Bluekola.Api.Models.Common;
 using Bluekola.Api.Models.Users;
@@ -25,25 +26,41 @@ namespace Bluekola.Server.RestAPI
 
         [HttpPost("Send")]
         [ValidateModel]
-        public async Task<GenericResponse<object>> Send([FromBody] RequestOtpModel model)
+        public async Task<IActionResult> Send([FromBody] RequestOtpModel model)
         {
-            var result = await _query.Send(model.Phone);
+            try
+            {
+                var result = await _query.Send(model.Phone);
 
-            if(result){
-                return new GenericResponse<object>(true, ResponseBase.SUCCESSFUL, null);
+                if (result)
+                {
+                    return Ok(new GenericResponse<object>(true, ResponseBase.SUCCESSFUL, null));
+                }
+                return Ok(new GenericResponse<object>(false, ResponseBase.FAILED, null));
             }
-            return new GenericResponse<object>(false, ResponseBase.FAILED, null);
+            catch (Exception ex)
+            {
+                return Ok(new GenericResponse<object>(false, ex.Message, null));
+            }
         }
 
         [HttpPost("Validate")]
         [ValidateModel]
-        public async Task<GenericResponse<object>> Validate([FromBody] ValidateOtpModel model)
+        public async Task<IActionResult> Validate([FromBody] ValidateOtpModel model)
         {
-            var result = await _query.Validate(model.Phone, model.Otp);
-            if(result){
-                return new GenericResponse<object>(true, ResponseBase.SUCCESSFUL, null);
+            try
+            {
+                var result = await _query.Validate(model.Phone, model.Otp);
+                if (result)
+                {
+                    return Ok(new GenericResponse<object>(true, ResponseBase.SUCCESSFUL, null));
+                }
+                return Ok(new GenericResponse<object>(false, ResponseBase.FAILED, null));
             }
-            return new GenericResponse<object>(false, ResponseBase.FAILED, null);
+            catch (Exception ex)
+            {
+                return Ok(new GenericResponse<object>(false, ex.Message, null));
+            }
         }
     }
 }

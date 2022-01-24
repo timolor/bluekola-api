@@ -1,2 +1,6 @@
+cd Bluekola.Data.Access
 dotnet ef migrations add -s ../Bluekola InitialMigration
 dotnet ef database update -s ../Bluekola
+
+
+dotnet publish -c Release -r win-x64 --self-contained false

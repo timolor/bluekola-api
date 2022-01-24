@@ -9,7 +9,7 @@ namespace Bluekola.Security.Auth
 {
     public class TokenBuilder : ITokenBuilder
     {
-        public string Build(string phone, string[] roles, DateTime expireDate)
+        public string Build(string userId, string[] roles, DateTime expireDate)
         {
             var handler = new JwtSecurityTokenHandler();
 
@@ -21,7 +21,7 @@ namespace Bluekola.Security.Auth
             }
 
             ClaimsIdentity identity = new ClaimsIdentity(
-                new GenericIdentity(phone, "Bearer"),
+                new GenericIdentity(userId, "Bearer"),
                 claims
             );
 
